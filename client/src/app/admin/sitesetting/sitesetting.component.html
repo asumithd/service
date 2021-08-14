@@ -1,0 +1,148 @@
+<p-panel>
+    <p-header>
+        Site Settings
+    </p-header>
+    <div class="row">
+        <form class="col-md-7" (ngSubmit)="onSubmitForm(sitesettingForm);" #sitesettingForm="ngForm">
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Logo</label>
+                <div class="col-sm-9">
+                    <p-fileUpload name="image[]" (onUpload)="UploadImage($event , 'logo')" mode="basic" auto="auto" [url]="imageUploadApi"></p-fileUpload>
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Favicon</label>
+                <div class="col-sm-9">
+                    <p-fileUpload name="image[]" (onUpload)="UploadImage($event , 'favicon')" mode="basic" auto="auto" [url]="imageUploadApi"></p-fileUpload>
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Title</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="settings.title" #title="ngModel" name="title" id="title">
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="settings.name" #name="ngModel" name="name" id="name">
+
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Facebook</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="settings.facebook" #facebook="ngModel" name="facebook" id="facebook">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Twitter</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="settings.twitter" #twitter="ngModel" name="twitter" id="twitter">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Instagram</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="settings.instagram" #instagram="ngModel" name="instagram" id="instagram">
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Banner URL</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="settings.bannervideo" #bannervideo="ngModel" name="bannervideo" id="bannervideo">
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">video banner</label>
+                <div class="col-sm-9">
+                    <p-inputSwitch [(ngModel)]="settings.videodisplay" #videodisplay="ngModel" name="videodisplay" id="videodisplay"></p-inputSwitch>
+
+                </div>
+            </div>
+
+
+
+
+            <h4 class="sripheadline">SEO Content</h4>
+
+            <div ngModelGroup="seo" #seo="ngModelGroup" class="form-group row">
+
+                <div class="col-md-12">
+                    <label class="col-sm-3 col-form-label">SEO Title</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" [(ngModel)]="settings.seo.title" #title="ngModel" name="title" id="title">
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <label class="col-sm-3 col-form-label">SEO Meta-Tag</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" [(ngModel)]="settings.seo.metatag" #metatag="ngModel" name="metatag" id="metatag">
+                    </div>
+                </div>
+
+
+                <div class="col-md-12">
+                    <label class="col-sm-3 col-form-label">SEO Keyword</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" [(ngModel)]="settings.seo.keyword" #keyword="ngModel" name="keyword" id="keyword">
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <label class="col-sm-3 col-form-label">SEO Description</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" [(ngModel)]="settings.seo.description" #description="ngModel" name="description" id="description">
+                          </textarea>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+        </form>
+
+        <div class="logoPrview col-md-4">
+            <img class="logopreview" *ngIf="settings.logo" src="{{imagepath}}{{settings.logo}}" />
+            <img class="logopreview" *ngIf="settings.favicon" src="{{imagepath}}{{settings.favicon}}" />
+
+        </div>
+    </div>
+
+    <p-footer>
+        <div class="form-group row">
+            <div class="col-sm-9">
+                <div class="btnholder">
+                    <button type="button" (click)="onSubmitForm(sitesettingForm);" [disabled]="!sitesettingForm.form.valid" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-round">Reset</button>
+                </div>
+            </div>
+        </div>
+
+    </p-footer>
+</p-panel>

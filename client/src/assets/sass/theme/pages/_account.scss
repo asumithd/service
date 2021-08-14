@@ -1,0 +1,114 @@
+.accountHolder {
+    @include float($ltr);
+    padding: 0 20px;
+    background: #0c5260;
+    min-height: 100vh;
+}
+
+.userDetail {
+    @include float($ltr);
+    padding: 70px 50px 40px 50px;
+    color: #fff;
+}
+
+.whitebg.accountcontent {
+    padding: 50px 50px;
+    background: #fff;
+    @include float($ltr);
+    position: relative;
+}
+
+button.borderbtn {
+    color: #fff;
+    background: none;
+    border: 1px solid #d8d7d7;
+    border-radius: 0;
+    margin: 15px 0 0 0;
+}
+
+aside.accountMenu {
+    float: left;
+    min-width: 260px;
+    background: #edf1f7;
+    padding: 20px 0px 20px 20px;
+    li {
+        a {
+            padding: 20px 20px;
+            @include float($ltr);
+            color: #000;
+        }
+        &.active a {
+            background: #fff;
+        }
+        i {
+            background: #444;
+            color: #fff;
+            width: 25px;
+            border-radius: 50%;
+            font-size: 12px;
+            height: 25px;
+            padding: 6px 7px;
+            float: left;
+            margin: 0 8px 0 0;
+        }
+    }
+}
+
+.accountcontainer {
+    float: $ltr;
+    padding: 30px 50px;
+    width: calc(100% - 260px);
+    a.linkbtn {
+        color: #fc8019;
+        font-weight: 600;
+        font-size: 14px;
+        margin-right: 20px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+}
+
+.savedlocation li>.Addresstitle {
+    color: #000;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.accountcontent {
+    width: 50%;
+    label {
+        font-weight: normal;
+    }
+    .form-control {
+        height: calc(1.8rem + 13px);
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    h2.accountHeadline {
+        font-size: 24px;
+        margin: 0 0 27px 0;
+    }
+}
+
+.check-maintitlelight {
+    color: #b5b3b3;
+    font-size: 23px;
+    @include semi;
+    font-weight: normal;
+}
+
+.checkoutcontainer {
+    app-signup {
+        .check-maintitle {
+            display: none
+        }
+    }
+}
+
+.bghand {
+    position: absolute;
+    right: 120px;
+    z-index: 0;
+    width: 470px;
+}

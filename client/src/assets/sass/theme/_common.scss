@@ -1,0 +1,57 @@
+body {
+    font-family: "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+a {
+    color: inherit;
+    &::hover {
+        text-decoration: none;
+        color: inherit
+    }
+}
+
+app-admin {
+    background: #f2f3f8;
+    @include float($ltr);
+}
+
+.left {
+    float: $ltr;
+}
+
+.right {
+    float: $rtl;
+}
+
+.admin-panel-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+    .col-md-6 {
+        padding: 0 5px;
+    }
+}
+
+.fullform {
+    @include float($ltr);
+    p-panel.col-md-6 {
+        float: $ltr;
+    }
+}
+
+.buttonholder {
+    float: left;
+    margin: 0 0 0 10px;
+    button {
+        padding: 5px 20px;
+    }
+}
+
+p-fileupload {
+    float: $ltr;
+}
+
+.removescroll{
+    overflow: hidden;
+} 

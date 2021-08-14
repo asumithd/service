@@ -1,0 +1,67 @@
+<p-panel>
+    <p-header>
+        Payment Method
+    </p-header>
+    <div class="row">
+        <form class="col-md-7" (ngSubmit)="onSubmitpaymentMethod(stripePaymentForm);" #stripePaymentForm="ngForm">
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Payment Method</label>
+                <div class="col-sm-9">
+                    <p-checkbox name="paymentMode" value="cod" label="COD" [(ngModel)]="paymentMethod.paymentmode"></p-checkbox>
+                    <p-checkbox name="paymentMode" value="stripe" label="Stripe" [(ngModel)]="paymentMethod.paymentmode"></p-checkbox>
+                </div>
+            </div>
+
+            <h4 class="sripheadline">Stripe Payment</h4>
+
+            <div ngModelGroup="stripe" #stripe="ngModelGroup" class="form-group row">
+
+                <div class="col-md-12">
+                    <label class="col-sm-3 col-form-label">Stripe Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" [(ngModel)]="paymentMethod.stripe.name" #name="ngModel" name="name" id="name" required>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <label class="col-sm-3 col-form-label">Secret Key</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" [(ngModel)]="paymentMethod.stripe.secretkey" #secretkey="ngModel" name="secretkey" id="secretkey" required>
+                    </div>
+                </div>
+
+
+                <div class="col-md-12">
+                    <label class="col-sm-3 col-form-label">Key</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" [(ngModel)]="paymentMethod.stripe.key" #key="ngModel" name="key" id="key" required>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+
+        </form>
+
+
+    </div>
+
+    <p-footer>
+        <div class="form-group row">
+            <div class="col-sm-9">
+                <div class="btnholder">
+                    <button type="button" (click)="onSubmitpaymentMethod(stripePaymentForm);" [disabled]="!stripePaymentForm.form.valid" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-round">Reset</button>
+                </div>
+            </div>
+        </div>
+
+    </p-footer>
+</p-panel>

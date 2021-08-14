@@ -1,0 +1,81 @@
+.orderstatus {
+    @include float($ltr);
+    >li {
+        @include float($ltr);
+        border: 1px solid #eee;
+        padding: 30px 10px;
+        margin: 0 0 20px 0;
+    }
+}
+
+.usercusInfo {
+    @include float($ltr)
+}
+
+.usercusInfo {
+    @include float($ltr);
+    font-size: 14px;
+    >li {
+        @include float($ltr);
+    }
+}
+
+ul.usercusInfo li>label {
+    width: 70px;
+    margin: 0;
+}
+
+.orderlist {
+    background: #eee;
+    padding: 20px;
+    font-size: 14px;
+    margin: 0 0 20px 0;
+}
+
+.callbnt.btn {
+    float: left;
+    width: 100%;
+    margin: 0 0 11px 0;
+    font-size: 16px;
+}
+
+.prdicttodeliver {
+    @include float($ltr);
+}
+
+.CompletedOreder {
+    .orderstatus>li {
+        margin: 6px;
+        width: 31%;
+        padding: 11px;
+        >button {
+            float: right;
+            margin: 10px 0 0 0;
+        }
+    }
+    .usercusInfo {
+        float: left;
+        width: 100%;
+        text-align: left;
+        font-size: 14px;
+        li {
+            >label {
+                margin: 0 10px 0 0;
+                font-weight: bold;
+            }
+            span {
+                float: right;
+                width: 65%;
+            }
+        }
+    }
+}
+
+.ordercontainer {
+    >h3 {
+        @include regular;
+        font-weight: normal;
+        font-size: 25px;
+        margin: 0 0 20px 0;
+    }
+}

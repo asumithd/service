@@ -1,0 +1,90 @@
+<p-panel>
+    <p-header>
+        {{pagetype}} Attributes
+    </p-header>
+    <div class="row">
+
+
+
+        <form class="col-md-7" (ngSubmit)="onSubmitdish(attributeForm);" #attributeForm="ngForm">
+
+            <div class="attributeContainer">
+                <h5 class="attributeName">Attribute Name</h5>
+
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Label</label>
+                    <div class="col-sm-9">
+                        <input type="text" required class="form-control" name="label" [(ngModel)]="attibutesdata.label" name="label" #label="ngModel" class="form-control" id="label">
+                    </div>
+                </div>
+
+
+                <div ngModelGroup="option" #option="ngModelGroup" class="form-group row">
+                    <label class="col-sm-3 col-form-label">Options</label>
+                    <div class="col-sm-9">
+                        <input type="text" [(ngModel)]="option.label" name="label" #label="ngModel" class="form-control" id="label" class="form-control">
+                    </div>
+
+                    <div class="col-md-2">
+                        <button type="button" [disabled]="!option.label" class="btn btn-primary" (click)="addOptions(option)">Add Options</button>
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+
+
+
+
+
+        <div class="col-md-4">
+            <br>
+
+            <table *ngIf="options.length > 0" class="table">
+                <thead>
+                    <tr>
+                        <th>Options</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let att of options; let i=index">
+                        <td>{{att.label}}</td>
+
+                        <td> <a (click)="removeOption(i)">X</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <p-footer>
+        <div class="form-group row">
+            <div class="col-sm-9">
+                <div class="btnholder">
+                    <button [disabled]="!attributeForm.valid || options.length === 0" type="button" (click)="onSubmitdish(attributeForm);" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-round">Reset</button>
+                </div>
+            </div>
+        </div>
+
+    </p-footer>
+</p-panel>

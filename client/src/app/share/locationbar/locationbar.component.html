@@ -1,0 +1,70 @@
+<div class="locationbar">
+    <div *ngIf="addressview" class="selectadreeview">
+        <span class="closeicon" (click)="closeLocation()"> <i class="mdi mdi-close"></i> </span>
+
+        <div class="addressSearchbak"> 
+            <input ngx-google-places-autocomplete [options]='googleplaceOption'   (onAddressChange)="inputAddress($event)"/>
+        </div>
+
+        <div (click)="getGpsLocation()" class="currentlocation">
+            <i class="mdi mdi-crosshairs-gps"></i>
+            <div class="curentlocat">
+                <h6>Get Current Location</h6>
+                <span class="gps">Using GPS</span>
+            </div>
+        </div>
+
+        <div class="savedaddress">
+            <span class="savedtext">SAVED ADDRESS</span>
+            <ul>
+                <li></li>
+            </ul>
+
+            <img src="./assets/images/a.JPG">
+        </div>
+
+    </div>
+
+    <div *ngIf="mapview" class="mapview">
+
+        <h3 class="topTitleFixed">
+            <i *ngIf="!editData" (click)="mapview = false; addressview = true"  class="mdi mdi-arrow-left"></i>
+            <i *ngIf="editData" (click)="closeLocation()"  class="mdi mdi-close"></i>
+           
+            Set Delivery Address
+            </h3>
+
+        <div class="imagedrag">
+            <p-gmap *ngIf="options" #map [style]="{'width':'100%','height':'320px'}" [options]="options"
+                [overlays]="overlays" (onOverlayDragEnd)="handleDragEnd($event)"></p-gmap>
+
+            <div class="addresstext">
+                <span class="asubtext">Address</span>
+                <span class="adder">{{location?.fulladdress}}</span>
+            </div>
+        </div>
+
+        <div class="logform">
+            <div class="Authform">
+                <form #addressForm="ngForm" >
+                    <input required placeholder="Door/flat no" [(ngModel)]="location.doorno" name="doorno" type="text">
+                    <input required placeholder="Landmark" name="landmark" [(ngModel)]="location.landmark" type="text">
+                    <ul *ngIf="locationtileOption" class="Multiselects">
+                        <li *ngFor="let options of locationtileOption"  (click)="setLocationTitle(options.value)" [class.disabled]="!options.active"
+                            [ngClass]="{'active': selectedLocationOption == options.value}" data-value="options.value">
+                            {{options.label}}   
+                        </li>
+                    </ul>
+                    <input *ngIf="location.addresstitle !== 'HOME' && location.addresstitle !== 'OFFICE'" required [(ngModel)]="location.addresstitle"
+                        placeholder="Address Title- Eg Home, Work .." name="addresstitle" type="text">
+                </form>
+            </div>
+        </div>
+
+        <div class="bFixed">
+            <button [disabled]="!addressForm.valid" (click)="savedaddress()" class="btn btn-theme">Save Address and Proced</button>
+        </div>
+    </div>
+
+</div>
+<div class="overlay"></div>

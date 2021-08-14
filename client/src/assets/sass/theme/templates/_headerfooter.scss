@@ -1,0 +1,86 @@
+header {
+    @include float($ltr);
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    background: #ffffff;
+    height: 55px;
+    box-shadow: 0 1px 15px 1px rgba(69, 65, 78, 0.1);
+    .admin__menu {
+        @include float($ltr);
+        .menu__right {
+            float: $rtl;
+            li {
+                float: $ltr;
+                margin: 0 0 0 17px;
+                font-size: 14px;
+                a {
+                    color: #424242
+                }
+            }
+        }
+        .menu__left {
+            float: $ltr;
+            .btn-round {
+                border-radius: 50px;
+                padding: 5px 12px;
+                margin: -5px 0;
+                float: left;
+                background: #ffff;
+                i {
+                    font-size: 18px;
+                    float: left;
+                    margin: 0 4px 0 0;
+                    line-height: 18px;
+                }
+            }
+            .menuicon {
+                float: $ltr;
+                font-size: 30px;
+                line-height: 23px;
+                border-right: 1px solid #ccc;
+                margin: -15px 10px 0 -9px;
+                height: 54px;
+                padding: 16px 10px 0 0;
+            }
+            input.searchheader {
+                float: left;
+                border: none;
+                margin: -2px 0 0 0;
+                font-size: 18px;
+            }
+        }
+    }
+    .roundico {
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        height: 30px;
+        padding: 0 0 0 4px;
+        line-height: 23px;
+        width: 30px;
+        font-size: 20px;
+        display: inline-block;
+    }
+}
+
+body {
+    @include regular;
+    .lr_header_navigation_main_wrapper {
+        background: #fff;
+        box-shadow: 0 15px 40px -20px rgba(40, 44, 63, .15);
+        position: relative;
+        z-index: 1;
+        color: #000;
+        @include regular;
+    }
+    .main-menu .navigation>li>a {
+        color: #000;
+        font-size: 15px;
+    }
+    .caret_btn span {
+        background: #fc8019;
+    }
+}
+
+.logo {
+    width: 47px;
+}

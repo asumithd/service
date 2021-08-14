@@ -1,0 +1,294 @@
+app-cart.checkoutcart {
+    background: #e9ecee;
+    padding: 15px;
+}
+
+.checkoutcontainer {
+    @include float($ltr);
+    background: #fff;
+    padding: 25px 45px;
+    margin: 20px 0 0 0;
+    box-shadow: 0 0 6px 0px #ccc;
+}
+
+h2.check-maintitle {
+    font-size: 26px;
+    font-weight: bold;
+    float: $ltr;
+    width: 100%;
+    i.fa.fa-check {
+        font-size: 12px;
+        background: #60b246;
+        color: #fff;
+        border-radius: 50%;
+        height: 20px;
+        padding: 4px 0 0 3px;
+        margin: 7px 0 0 15px;
+        width: 20px;
+        display: inline-block;
+        float: right;
+    }
+}
+
+span.changebtn {
+    float: right;
+    font-size: 12px;
+    margin: 6px 0 0 0;
+    color: #fc8019;
+}
+
+.deliverys {
+    float: left;
+    width: 100%;
+    font-size: 13px;
+    color: #969595;
+    margin: 10px 0 0 0;
+}
+
+.emptycartcontainer {
+    img {
+        opacity: .4;
+    }
+    p.emptycarttext {
+        font-size: 13px;
+        margin: 14px 0 0 0;
+        opacity: .6;
+    }
+}
+
+p.logeduser {
+    float: left;
+    width: 100%;
+    margin: 20px 0 0 0;
+}
+
+app-checkout {
+    float: left;
+    width: 100%;
+    min-height: 100%;
+    background: #e9ecee;
+    padding: 0 0 30px 0;
+    app-cart {
+        float: left;
+        width: 100%;
+        background: #fff;
+        padding: 20px;
+    }
+    .fixedCart {
+        top: 90px;
+    }
+    .checkoutcontainer {}
+}
+
+span.check-subtitle {
+    color: #888;
+    @include float($ltr);
+    font-size: 14px;
+}
+
+form.logform {
+    float: $ltr;
+    width: 60%;
+    padding-top: 25px;
+    .logintxt {
+        @include float($ltr);
+        padding-bottom: 10px;
+        font-size: 14px;
+        color: #888;
+    }
+}
+
+.Authform {
+    @include float($ltr);
+    border: 1px solid #ccc;
+    input {
+        border: none;
+        border-bottom: 1px solid #ccc;
+        height: 60px;
+        font-size: 14px;
+        padding: 15px;
+        @include float($ltr);
+        &:last-child {
+            border-bottom: none
+        }
+    }
+}
+
+.logintxt label {
+    cursor: pointer;
+    &:hover {
+        color: #60b246;
+    }
+}
+
+button.themebtn {
+    background: #60b246;
+    border: none;
+    font-weight: bold;
+    width: 100%;
+    font-size: 13px;
+    padding: 15px 0;
+    color: #fff;
+    margin: 30px 0 0 0;
+}
+
+.savedlocation li {
+    float: left;
+    width: 48%;
+    border: 1px solid #efefef;
+    padding: 27px;
+    font-size: 12px;
+    color: #888;
+    margin-top: 20px;
+}
+
+.savedlocation li:nth-child(2n) {
+    float: right;
+}
+
+.checkoutSignup {
+    .signUpOutter {
+        position: static;
+        background: none;
+    }
+    .signup-container {
+        margin: 0
+    }
+    .checkoutcontainer {
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        width: 60%;
+    }
+    form.logform {
+        padding: 0;
+    }
+    .check-maintitle span {
+        display: none
+    }
+}
+
+.paymentlist {
+    @include float($ltr);
+    margin: 10px 0 0 0;
+    .paymentContent {
+        float: left;
+        width: 70%;
+        padding: 20px 30px;
+    }
+    .paytype {
+        float: left;
+        width: 30%;
+        padding: 10px 0 10px 10px;
+        background: #edf1f7;
+        min-height: 300px;
+        li {
+            @include float($ltr);
+            padding: 10px 10px;
+            &.active {
+                background: #fff;
+            }
+        }
+    }
+}
+
+app-stripe .cardname {
+    float: left;
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #ddd;
+}
+
+div#card-element {
+    float: left;
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 0 0 0 10px;
+    margin: 10px 0 0 0;
+}
+
+.paytype li i {
+    background: #535665;
+    color: #fff;
+    padding: 8px 8px;
+    border-radius: 50%;
+    margin: 0 9px 0 0;
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+    float: left;
+}
+
+body .verticaltab {
+    @include float($ltr);
+    @include regular;
+    margin: 20px 0 0 0;
+    ul.ui-tabview-nav {
+        float: left;
+        width: 30%;
+        background: #edf1f7;
+        margin: 0 0 0 0px;
+        padding: 0 0 0 10px;
+    }
+    .ui-tabview.ui-tabview-top .ui-tabview-nav {
+        margin-bottom: 0;
+        background: #edf1f7;
+        border-radius: 0;
+        padding: 10px 0 10px 10px;
+        height: 320px;
+    }
+    .ui-tabview .ui-tabview-panels {
+        border: none;
+        color: #333333;
+        float: left;
+        width: 70%;
+        padding: 40px 40px;
+    }
+    .ui-tabview.ui-tabview-top .ui-tabview-nav li {
+        margin: 0;
+        float: left;
+        width: 100%;
+        border: none;
+        border-radius: 0;
+        background-color: #edf1f7;
+        &.ui-state-active {
+            background: #fff;
+            a {
+                color: #333;
+            }
+        }
+        &:hover,
+        a:hover {
+            border: none !important;
+        }
+        a {
+            padding: 14px 13px;
+            @include regular;
+        }
+    }
+    .ui-tabview.ui-tabview-top .ui-tabview-nav li a .ui-tabview-left-icon {
+        background: #535665;
+        color: #fff;
+        padding: 8px 8px;
+        border-radius: 50%;
+        margin: 0 9px 0 0;
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+        float: left;
+    }
+    .ui-tabview .ui-tabview-title {
+        line-height: 27px;
+    }
+}
+
+.cod {
+    i.fa {
+        color: #ccc;
+        font-size: 100px;
+    }
+}
+
+body .ui-widget-content .cod p {
+    font-size: 12px;
+}

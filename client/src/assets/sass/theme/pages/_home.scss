@@ -1,0 +1,84 @@
+.adminRight {
+    float: right;
+    width: calc(100% - 230px);
+}
+
+.adminContent {
+    float: left;
+    width: 100%;
+    padding: 20px;
+}
+
+.signUpOutter {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: inline-block;
+    background: #000000e8;
+    z-index: 9999;
+}
+
+.signup-container {
+    margin: 80px auto 0 auto;
+    width: 530px;
+    form.logform {
+        width: 100%;
+    }
+    .checkoutcontainer {
+        padding: 35px 45px 45px 45px;
+        position: relative;
+        i.fa-close {
+            position: absolute;
+            top: 30px;
+            right: 45px;
+        }
+    }
+}
+
+.forgetText {
+    font-size: 13px;
+    margin: 12px 0 0 0;
+    float: left;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+app-home {
+    display: inline-block;
+    width: 100%;
+    min-height: 690px;
+}
+
+.home .lr_header_navigation_main_wrapper {
+    background: none;
+    left: 0;
+    top: 30px;
+    position: absolute;
+    box-shadow: none;
+}
+
+.lr_banner_content_inner_wrapper h3 span:after {
+    border: 1px solid rgb(74, 62, 62);
+    width: 135px;
+}
+
+.move-eff span {
+    color: #ff8e00;
+}
+
+.home .container {
+    max-width: 1170px;
+}
+
+.home {
+    .logoleft {
+        max-width: 80px;
+    }
+    .menurigt {
+        max-width: 41%;
+    }
+}

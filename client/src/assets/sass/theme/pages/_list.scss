@@ -1,0 +1,357 @@
+ul.categoryList {
+    float: left;
+    width: 100%;
+    text-align: right;
+    font-size: 15px;
+    margin-top: 0px;
+    line-height: 33px;
+    font-weight: bold;
+}
+
+.subcat {
+    font-weight: normal;
+    margin-top: 0px;
+}
+
+.listMain {
+    float: left;
+    border-left: 1px solid #ccc;
+    padding: 50px 30px 0 30px;
+}
+
+h2.mainCategoryheading {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 0 30px 0;
+}
+
+h2.SubCategoryheading {
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 2px solid #ccc;
+    float: left;
+    padding: 0 0 8px 0;
+}
+
+ul.cat-list {
+    float: left;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.cat-list app-singleproduct {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #f7f5f5;
+    padding: 20px 0;
+}
+
+.vegimage {
+    float: left;
+    width: 50px;
+    border: 1px solid #ccc;
+    height: 50px;
+    margin: 0 10px 0 0;
+    overflow: hidden
+}
+
+.price {
+    float: right;
+    >span {
+        float: right;
+        font-size: 12px;
+        margin: 6px 0 0 10px;
+        width: 38px;
+    }
+}
+
+.cartbnt {
+    float: right;
+    width: 100px;
+    text-align: right;
+}
+
+.listdetail {
+    float: left;
+    width: calc(100% - 160px);
+    >p {
+        font-size: 16px;
+        margin: 0;
+        color: #000;
+    }
+    >span {
+        font-size: 14px;
+        margin: 0;
+        color: #999
+    }
+}
+
+.addBtn {
+    border: 1px solid #ccc;
+    font-size: 14px;
+    background: none;
+    text-align: center;
+    padding: 3px 0;
+    color: #60b246;
+    font-weight: bold;
+    width: 80px;
+    text-transform: uppercase;
+}
+
+span.customizetext {
+    float: right;
+    color: #7e808c;
+    font-size: 10px;
+    text-align: center;
+    line-height: 1;
+    font-weight: 500;
+    pointer-events: none;
+    margin: 5px 0 0 0;
+    width: 80px;
+}
+
+.fixedCart {
+    @include float($ltr);
+    position: fixed;
+    width: 400px;
+    top: 262px;
+}
+
+.listpage {
+    .fixedCart {
+        width: 280px
+    }
+    app-footer {
+        display: none;
+    }
+}
+
+ul.cartites {
+    @include float($ltr);
+    font-size: 14px;
+    max-height: 150px;
+    overflow: auto;
+    li {
+        @include float($ltr);
+        padding: 0px 0 8px 0;
+    }
+    .dishright {
+        float: left;
+        width: 130px;
+        p {
+            margin: 0;
+            font-size: 13px;
+        }
+    }
+}
+
+.subtotal {
+    @include float($ltr);
+    border-top: 1px solid #eee;
+    padding: 10px 0 0 0;
+}
+
+.subttolLef {
+    float: left;
+    font-size: 14px;
+    span {
+        @include float($ltr);
+        font-size: 12px;
+    }
+}
+
+.btn-checkout {
+    float: left;
+    width: 100%;
+    border-radius: 0;
+    background: #60b246;
+    color: #fff;
+    font-size: 17px;
+    border: none;
+    margin: 10px 0 0 0;
+    text-transform: uppercase;
+}
+
+.lr_header_navigation_main_wrapper {
+    padding: 10px 0;
+    background: #171a29;
+}
+
+.counter {
+    display: inline-block;
+    width: 74px;
+    float: right;
+    border: 1px solid #dedede;
+    span {
+        float: left;
+        &.counterminus {
+            float: right;
+            padding: 3px 8px;
+        }
+    }
+}
+
+span.counteradd {
+    padding: 3px 8px;
+}
+
+span.countervalue {
+    text-align: center;
+    padding: 3px 0;
+    /* border-left: 1px solid #dedede; */
+    /* border-right: 1px solid #dedede; */
+    width: 23px;
+}
+
+h2.cartTitle {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0 0 30px 0;
+}
+
+.vegimage img {
+    width: 100%;
+}
+
+.filtersection {
+    @include float($ltr);
+    background: #171a29;
+    padding: 20px 0;
+}
+
+.resimage {
+    float: left;
+    width: 260px;
+    height: 110px;
+    overflow: hidden;
+    margin: 0;
+    background: #f4f4f726;
+    img {
+        width: 100%;
+    }
+}
+
+.shopinfo {
+    float: left;
+    margin: 0 0 0 30px;
+}
+
+.shopname {
+    color: #fff;
+    margin: 0
+}
+
+span.shopsubtext {
+    float: left;
+    width: 100%;
+    color: #ccc;
+    font-size: 15px;
+}
+
+.seachholde {
+    @include float($ltr);
+    margin-top: 10px;
+}
+
+input.dishInput {
+    border: none;
+    font-size: 14px;
+    padding: 0 0 0 10px;
+    height: 38px;
+    width: 250px;
+    float: left;
+}
+
+button.vegsot {
+    background: #fff;
+    border: none;
+    height: 38px;
+    margin: 0 0 0 14px;
+    float: left;
+    padding: 0 16px;
+    font-size: 14px;
+    i {
+        color: #44a244;
+        margin: 0 10px 0 0;
+    }
+}
+
+.lr_banner_bottom_shap_img_wrapper {
+    display: none
+}
+
+.listpage {
+    .additionalprice,
+    .dividerTotal,
+    .cartaddtionalinfo {
+        display: none;
+    }
+    label.cartinfotext {
+        display: block;
+    }
+}
+
+label.cartinfotext {
+    color: #7e808c;
+    font-weight: normal;
+    font-size: 11px;
+    float: left;
+    width: 100%;
+    display: none
+}
+
+.customizeform {
+    padding: 20px 10px;
+    i {
+        float: right;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    .addtocart {
+        background: none;
+        border: 1px solid #60b246;
+        color: #60b246;
+        width: 100%;
+        padding: 6px 0;
+        font-size: 15px;
+        margin: 9px 0 0 0;
+    }
+}
+
+.customizeheadline {
+    border-bottom: 1px dashed #ccc;
+    padding: 0 0 5px 0;
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+h5.attributeName {
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.variations {
+    li {
+        padding: 0;
+        label {
+            margin: 0 0 0 0.5em;
+            font-weight: normal;
+            font-size: 15px;
+        }
+    }
+    margin: 0 0 20px 0;
+    float: left;
+    width: 100%;
+}
+
+.listpagefixed {
+    .filtersection {
+        position: fixed;
+        top: 0;
+        z-index: 9;
+    }
+    .listMain {
+        margin: 84px 0 0 0;
+    }
+}

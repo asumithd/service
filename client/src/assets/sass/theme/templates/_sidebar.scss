@@ -1,0 +1,212 @@
+    app-sidebar {
+        // background: #354052;
+        // background: #28292b;
+        background: #191b29;
+        width: 230px;
+        // position: fixed;
+        top: 0;
+        float: left;
+        $ltr: 0;
+        bottom: 0;
+    }
+    
+    .sidebar__menu {
+        @include float($ltr);
+        font-size: 15px;
+        >li {
+            @include float($ltr);
+            color: #fff;
+            >a {
+                @include float($ltr);
+                color: #fff;
+                padding: 12px 14px;
+                border-bottom: 1px solid #6b6e7357;
+                i {
+                    margin: 0 15px 0 0;
+                }
+                span.mdi {
+                    float: right;
+                }
+            }
+            &.active {
+                background: $redgrade;
+            }
+        }
+    }
+    
+    .sub-menu {
+        @include float($ltr);
+        li {
+            @include float($ltr);
+            color: #fff;
+            a {
+                @include float($ltr);
+                color: #fff;
+                padding: 7px 14px 7px 40px;
+                border-bottom: 1px solid #6b6e7357;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            &.active {
+                background: $redgrade;
+            }
+        }
+    }
+    
+    .adminLogo a {
+        @include float($ltr);
+        color: #f84074;
+        padding: 15px 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-bottom: 1px solid #6b6e7357;
+    }
+    
+    // location bar
+    .locationbar {
+        position: fixed;
+        left: 0;
+        width: 36%;
+        background: #fff;
+        top: 0;
+        bottom: 0;
+        overflow: auto;
+        padding: 40px 50px 0 60px;
+        z-index: 9;
+        .logform {
+            margin: 30px 0 150px 0;
+            float: left;
+            width: 100%;
+        }
+        button.btn.btn-theme {
+            width: 100%;
+            background: #fc8019;
+            color: #fff;
+            border-radius: 0;
+            border: none;
+            text-transform: uppercase;
+            padding: 17px 0;
+        }
+    }
+    
+    .overlay {
+        position: fixed;
+        background: rgba(0, 0, 0, 0.7);
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+        display: block;
+    }
+    
+    .closeicon {
+        font-size: 25px;
+    }
+    
+    .addressSearchbak {
+        @include float($ltr);
+        margin: 10px 0 0 0;
+        input {
+            width: 100%;
+            padding: 11px 20px;
+            border: 1px solid #eee;
+            box-shadow: 0 0 4px 1px #eee;
+            font-size: 14px;
+            height: 49px;
+        }
+         ::placeholder {
+            opacity: .5;
+        }
+    }
+    
+    .currentlocation {
+        float: left;
+        width: 100%;
+        margin: 20px 0 0;
+        border: 1px solid #ddd;
+        padding: 20px 20px;
+        >.mdi {
+            float: $ltr;
+        }
+        .curentlocat {
+            float: left;
+            margin: 0 0 0 10px;
+            >h6 {
+                margin: 0
+            }
+            >span {
+                font-size: 12px;
+                color: #999;
+                margin: 3px 0 0 0;
+                float: left;
+            }
+        }
+    }
+    
+    .savedaddress {
+        float: left;
+        width: 100%;
+        margin: 20px 0 0;
+        border: 1px solid #ddd;
+        padding: 20px 20px;
+    }
+    
+    span.savedtext {
+        font-size: 12px;
+        @include light;
+    }
+    
+    h3.topTitleFixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        font-size: 16px;
+        padding: 20px 60px;
+        background: #fff;
+        @include semi;
+        width: 36%;
+        box-shadow: 0 0 4px 2px #ccc;
+        .mdi {
+            font-size: 18px;
+            margin: 0 10px 0 0;
+        }
+    }
+    
+    .imagedrag {
+        margin: 50px 0 0 0;
+    }
+    
+    .addresstext {
+        float: left;
+        width: 100%;
+        border: 1px solid #ccc;
+        padding: 10px 20px;
+    }
+    
+    span.asubtext {
+        float: left;
+        width: 100%;
+        color: #ccc;
+        font-size: 12px;
+    }
+    
+    span.adder {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        float: left;
+        font-size: 14px;
+    }
+    
+    .bFixed {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        background: #fff;
+        width: 36%;
+        padding: 10px 59px;
+        box-shadow: 0 0 5px 2px #ccc;
+    }

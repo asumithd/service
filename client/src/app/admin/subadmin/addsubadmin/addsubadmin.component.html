@@ -1,0 +1,285 @@
+<p-panel>
+    <p-header>
+        Add Subadmin
+    </p-header>
+    <div class="row">
+        <form class="col-md-7" #addSubadminForm="ngForm">
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">First Name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="subadmin.firstname" #name="ngModel" name="firstname" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Last Name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="subadmin.lastname" #name="ngModel" name="lastname" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="subadmin.email" #email="ngModel" name="email" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Password</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="subadmin.password" #password="ngModel" name="password" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Confirm Password</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="subadmin.password" #password="ngModel" name="password" required>
+                </div>
+            </div>
+            <br>
+            <br>
+
+            <h6> Set Permissons </h6>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Management</th>
+                        <th>View</th>
+                        <th>Add</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody *ngIf="subadmin.privilege">
+
+                    <tr *ngIf="subadmin.privilege.locations">
+                        <td>Location And Fare</td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privilege?.locations.view" binary="true" #view="ngModel" name="view"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.locations.add" binary="true" #add="ngModel" name="add"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.locations.edit" binary="true" #edit="ngModel" name="edit"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.locations.delete" binary="true" #delete="ngModel" name="delete"></p-checkbox>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>Users</td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.users.view" binary="true" #view="ngModel" name="view"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.users.add" binary="true" #add="ngModel" name="add"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.users.edit" binary="true" #edit="ngModel" name="edit"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.users.delete" binary="true" #delete="ngModel" name="delete"></p-checkbox>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td>Drivers</td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.drivers.view" binary="true" #view="ngModel" name="view"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.drivers.add" binary="true" #add="ngModel" name="add"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.drivers.edit" binary="true" #edit="ngModel" name="edit"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.drivers.delete" binary="true" #delete="ngModel" name="delete"></p-checkbox>
+                        </td>
+
+                    </tr>
+
+
+
+                    <tr>
+                        <td>categories</td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.categorys.view" binary="true" #view="ngModel" name="view"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.categorys.add" binary="true" #add="ngModel" name="add"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.categorys.edit" binary="true" #edit="ngModel" name="edit"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.categorys.delete" binary="true" #delete="ngModel" name="delete"></p-checkbox>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td>Vehicles</td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.vehicles.view" binary="true" #view="ngModel" name="view"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.vehicles.add" binary="true" #add="ngModel" name="add"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.vehicles.edit" binary="true" #edit="ngModel" name="edit"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.vehicles.delete" binary="true" #delete="ngModel" name="delete"></p-checkbox>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td>Car Makers</td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.carmakers.view" binary="true" #view="ngModel" name="view"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.carmakers.add" binary="true" #add="ngModel" name="add"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.carmakers.edit" binary="true" #edit="ngModel" name="edit"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.carmakers.delete" binary="true" #delete="ngModel" name="delete"></p-checkbox>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td>Documents</td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.documents.view" binary="true" #view="ngModel" name="view"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.documents.add" binary="true" #add="ngModel" name="add"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.documents.edit" binary="true" #edit="ngModel" name="edit"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.documents.delete" binary="true" #delete="ngModel" name="delete"></p-checkbox>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td>Site Earnings</td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.earnings.view" binary="true" #view="ngModel" name="view"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.earnings.add" binary="true" #add="ngModel" name="add"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.earnings.edit" binary="true" #edit="ngModel" name="edit"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.earnings.delete" binary="true" #delete="ngModel" name="delete"></p-checkbox>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td>Language Management</td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.languages.view" binary="true" #view="ngModel" name="view"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.languages.add" binary="true" #add="ngModel" name="add"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.languages.edit" binary="true" #edit="ngModel" name="edit"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.languages.delete" binary="true" #delete="ngModel" name="delete"></p-checkbox>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td>Location And Fare</td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.fares.view" binary="true" #view="ngModel" name="view"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.fares.add" binary="true" #add="ngModel" name="add"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.fares.edit" binary="true" #edit="ngModel" name="edit"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.fares.delete" binary="true" #delete="ngModel" name="delete"></p-checkbox>
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td>Coupon Management</td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.coupons.view" binary="true" #view="ngModel" name="view"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.coupons.add" binary="true" #add="ngModel" name="add"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.coupons.edit" binary="true" #edit="ngModel" name="edit"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.coupons.delete" binary="true" #delete="ngModel" name="delete"></p-checkbox>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>Templates</td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.templates.view" binary="true" #view="ngModel" name="view"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.templates.add" binary="true" #add="ngModel" name="add"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.templates.edit" binary="true" #edit="ngModel" name="edit"></p-checkbox>
+                        </td>
+                        <td>
+                            <p-checkbox [(ngModel)]="subadmin.privileges?.templates.delete" binary="true" #delete="ngModel" name="delete"></p-checkbox>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="form-group row">
+                <div class="col-sm-9">
+                    <div class="btnholder">
+                        <button type="submit" [disabled]="!addSubadminForm.form.valid" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+                        <button type="submit" class="btn btn-round">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</p-panel>

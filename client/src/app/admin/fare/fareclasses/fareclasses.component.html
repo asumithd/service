@@ -1,0 +1,83 @@
+<p-panel>
+    <p-header>
+        <div class="tableheader__right left">
+            <span class="title">Fare Classes</span>
+        </div>
+        <div class="tableheader__left right">
+            <div class="tablesearch">
+                <i class="mdi mdi-magnify"></i>
+                <input type="text" placeholder="Search" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+            </div>
+            <!-- <button class="tablebtn" type="button" (click)="dt.exportCSV()">
+              <i class="mdi mdi-file-excel"></i>
+              <span>Export</span>
+          </button> -->
+            <a (click)="showDialog()" class="tablebtn"><i class="mdi mdi-plus"></i>Add Fareclasses </a>
+        </div>
+
+    </p-header>
+
+    <p-table #dt [columns]="cols" [value]="datasource" [paginator]="true" [rows]="10" [totalRecords]="totalRecords">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th style="width:150px">Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData">
+                <td>
+                    {{rowData.title}}
+                </td>
+                <td>
+                    {{rowData.description}}
+                </td>
+                <td>
+                    <p-inputSwitch [(ngModel)]="rowData.active" #active="ngModel" name="active" id="active" required (onChange)="onstatusChange(rowData._id,$event)"></p-inputSwitch>
+                </td>
+                <td>
+                    <div class="icon-stacked">
+                        <button (click)="showDialog(rowData)" type="button" class="btn edit">
+                         <i class="mdi  mdi-lead-pencil"></i>
+                      </button>
+                        <button (click)="deleteData(rowData)" type="button" class="btn delete">
+                         <i class="mdi mdi-delete-variant"></i>
+                      </button>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-panel>
+<div *ngIf="displayModal" class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form (ngSubmit)="onSubmitform(subcataForm);" #subcataForm="ngForm">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h6 class="modal-title">Add New Fare Classes</h6>
+                    <button type="button" class="close" (click)="displayModal = false">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body brandform">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" [(ngModel)]="fareclasses.title" #title="ngModel" class="form-control" name="title" id="title" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" [(ngModel)]="fareclasses.description" #description="ngModel" class="form-control" name="description" id="description" required />
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-danger" (click)="displayModal = false">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

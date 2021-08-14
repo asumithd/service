@@ -1,0 +1,109 @@
+<p-panel>
+    <p-header>
+        <div class="tableheader__right left">
+            <span class="title">Banner</span>
+        </div>
+        <div class="tableheader__left right">
+            <div class="tablesearch">
+                <i class="mdi mdi-magnify"></i>
+                <input type="text" placeholder="Search" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+            </div>
+            <!-- <button class="tablebtn" type="button" (click)="dt.exportCSV()">
+              <i class="mdi mdi-file-excel"></i>
+              <span>Export</span>
+          </button> -->
+            <a (click)="showDialog()" class="tablebtn"><i class="mdi mdi-plus"></i>Add Banner </a>
+        </div>
+
+    </p-header>
+
+    <p-table #dt [columns]="cols" [value]="datasource" [paginator]="true" [rows]="10" [totalRecords]="totalRecords">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+
+
+                <th>Title</th>
+                <th>Sub Title</th>
+                <th>Image</th>
+                <th>Status</th>
+                <th style="width:150px">Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData">
+
+
+                <td>
+                    {{rowData.title}}
+                </td>
+                <td>
+                    <img src={{imagepath}}{{rowData.image}}/>
+                </td>
+                <td>
+                    {{rowData.subtitle}}
+                </td>
+                <td>
+                    <p-inputSwitch [(ngModel)]="rowData.active" (onChange)="onstatusChange(rowData._id,$event)"></p-inputSwitch>
+                </td>
+                <td>
+                    <div class="icon-stacked">
+                        <button (click)="showDialog(rowData)" type="button" class="btn edit">
+                         <i class="mdi  mdi-lead-pencil"></i>
+                      </button>
+                        <button (click)="deleteData(rowData)" type="button" class="btn delete">
+                         <i class="mdi mdi-delete-variant"></i>
+                      </button>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-panel>
+<div *ngIf="modalDisplay" class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form (ngSubmit)="onSubmitform(modalForm);" #modalForm="ngForm">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h6 class="modal-title">Add New Banner</h6>
+                    <button type="button" class="close" (click)="modalDisplay = false">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body brandform">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" [(ngModel)]="formdata.title" #title="ngModel" class="form-control" name="title" id="title" required />
+                    </div>
+                    <div class="form-group">
+                        <label>SubTitle</label>
+                        <input type="text" [(ngModel)]="formdata.subtitle" #subtitle="ngModel" class="form-control" name="subtitle" id="subtitle" required />
+                    </div>
+
+                    <div class="form-group ">
+                        <div class="row">
+                            <label class="col-sm-3 col-form-label">Image</label>
+                            <div class="col-sm-9">
+                                <p-fileUpload name="carimage[]" (onUpload)="onImageUpload($event , 'image')" mode="basic" auto="auto" [url]="uploadImage"></p-fileUpload>
+                                <input type="text" class="form-control" hidden [(ngModel)]="formdata.image" #image="ngModel" name="image" id="image" required>
+                                <div *ngIf="formdata.image" class="buttonholder">
+                                    <button type="button" (click)="viewImage(formdata.image)" class="btn">View</button>
+                                    <button type="button" (click)="removeImage(formdata.image , 'image' )" class="btn">Remove</button>
+                                </div>
+                                <div *ngIf="previewImage" class="imagePreview">
+                                    <h4>Preview</h4>
+
+                                    <img [src]="previewImage">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-danger" (click)="modalDisplay = false">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

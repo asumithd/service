@@ -1,0 +1,12 @@
+<!-- <form novalidate (ngSubmit)="buy()" [formGroup]="stripeTest">
+  <input type="text" class="cardname" formControlName="name" placeholder="Name on card">
+  <div id="card-element" class="field"></div>
+  <button class="btn themebtn" type="submit">Pay Now</button>
+</form> -->
+
+<form novalidate (ngSubmit)="buy()" [formGroup]="stripeTest">
+  <input type="text" formControlName="name"  class="cardname" placeholder="Name on card">
+  <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+  <button class="btn themebtn" type="submit">Pay Now</button>
+</form>
+

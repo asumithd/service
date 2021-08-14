@@ -1,0 +1,110 @@
+<p-panel>
+    <p-header>
+        <div class="tableheader__right left">
+            <span class="title">Coupon Mangement</span>
+        </div>
+        <div class="tableheader__left right">
+            <div class="tablesearch">
+                <i class="mdi mdi-magnify"></i>
+                <input type="text" placeholder="Search" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+            </div>
+            <!-- <button class="tablebtn" type="button" (click)="dt.exportCSV()">
+                    <i class="mdi mdi-file-excel"></i>
+                    <span>Export</span>
+                </button> -->
+            <a (click)="showDialog()" class="tablebtn"><i class="mdi mdi-plus"></i>Add Coupon </a>
+        </div>
+
+    </p-header>
+
+    <p-table #dt [columns]="cols" [value]="couponData" [paginator]="true" [rows]="10" [totalRecords]="totalRecords">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+
+
+                <th>Code</th>
+                <th>Coupon Type</th>
+                <th>Coupon Amount</th>
+                <th>Expiry Date</th>
+                <th>Status</th>
+                <th style="width:150px">Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData">
+                <td>
+                    {{rowData.couponName}}
+                </td>
+                <td>
+                    {{rowData.couponType}}
+                </td>
+                <td>
+                    {{rowData.amount}}
+                    <span *ngIf="rowData.couponType == 'percentproduct' || rowData.couponType == 'percentcart'">%</span>
+                </td>
+                <td>{{rowData.expiryDate | date}}</td>
+                <td>
+                    <p-inputSwitch (onChange)="handleChange(data)" [(ngModel)]="rowData.active"></p-inputSwitch>
+                </td>
+                <td>
+                    <div class="icon-stacked">
+
+                        <button (click)="onDeleteCoupon(rowData)" type="button" class="btn edit">
+                                <i class="mdi mdi-delete-variant"></i>
+                             </button>
+
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-panel>
+
+
+
+<div *ngIf="display" class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form (ngSubmit)="onSubmitCoupon(couponForm);" #couponForm="ngForm">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h6 class="modal-title">Add New Subcategory</h6>
+                    <button type="button" class="close" (click)="display = false">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body brandform">
+
+                    <div class="form-group bannerGroup">
+                        <label for="couponName">Coupon Code Name:</label>
+                        <input type="text" [(ngModel)]="coupons.couponName" #couponName="ngModel" class="form-control" name="couponName" id="couponName" required />
+                    </div>
+
+                    <div class="form-group bannerGroup">
+                        <label for="couponType">Coupon Type:</label>
+                        <p-dropdown [options]="couponlist" [(ngModel)]="coupons.couponType" #couponType="ngModel" name="couponType" id="couponType" required [filter]="true" filterBy="label,value.name"></p-dropdown>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="title">Amount:</label>
+                        <input type="text" [(ngModel)]="coupons.amount" #amount="ngModel" class="form-control" name="amount" id="title" required />
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="title">Expiry Date:</label>
+                        <p-calendar [(ngModel)]="coupons.expiryDate" #expiryDate="ngModel" name="expiryDate" id="expiryDate" required></p-calendar>
+                    </div>
+
+
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" [disabled]="!couponForm.form.valid" class="btn btn-primary ">Submit</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

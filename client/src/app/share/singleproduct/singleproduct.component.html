@@ -1,0 +1,55 @@
+<ng-container *ngIf="dish">
+    <div class="vegimage">
+        <img src="{{imagePath}}{{dish.image}}">
+    </div>
+    <div class="listdetail">
+        <p>{{dish.name}}</p>
+        <span>Rs {{dish.price}}</span>
+    </div>
+    <div class="cartbnt">
+        <!-- <button *ngIf="!addedtocart" (click)="addtocart(dish)" class="addBtn">ADD</button>
+        <button *ngIf="addedtocart" (click)="removefromcart(dish)" class="addBtn">Remove</button>
+ -->
+
+        <button *ngIf="!count" (click)="addcounter(dish)" class="addBtn">Add</button>
+        <app-productcounter *ngIf="count > 0" [count]="count" [item]="dish"></app-productcounter>
+        <span *ngIf="dish.variations?.length > 0" class="customizetext">Customisable</span>
+
+    </div>
+</ng-container>
+
+<div *ngIf='customizableModal' class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="customizeform" #attributeForm="ngForm">
+                            <div class="customizeheadline">
+                                <span>Customize</span>
+                                <i (click)="customizableModal = false" class="fa fa-close"></i>
+                            </div>
+                            <div *ngFor="let data of dish.variations">
+                                <h5 class="attributeName">{{data.attribute}}</h5>
+                                <ul class="variations">
+                                    <li *ngFor="let commonAme of data.option" class="col-md-6  col-xs-12">
+                                        <ng-container *ngIf="data.choicetype == 'checkbox'">
+                                            <p-checkbox *ngIf="commonAme.customizable" name="{{data.attribute}}" required value="{{commonAme.price}}#{{commonAme.key}}" label="{{commonAme.label}}(₹{{commonAme.price}})" [(ngModel)]="products[data.attribute]"></p-checkbox>
+                                        </ng-container>
+                                        <ng-container *ngIf="data.choicetype == 'radio'">
+                                            <p-radioButton *ngIf="commonAme.customizable" name="{{data.attribute}}" required value="{{commonAme.price}}#{{commonAme.key}}" label="{{commonAme.label}}(₹{{commonAme.price}})" [(ngModel)]="products[data.attribute]"></p-radioButton>
+                                        </ng-container>
+                                    </li>
+                                </ul>
+                            </div>
+                            <button type="button" (click)="addcustomize(attributeForm)" class="addtocart">Add to Cart</button>
+
+                        </form>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,186 @@
+<p-panel>
+    <p-header>
+        <div class="tableheader__right left">
+            <span class="title">Orders</span>
+        </div>
+        <div class="tableheader__left right">
+            <div class="tablesearch">
+                <i class="mdi mdi-magnify"></i>
+                <input type="text" placeholder="Search" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+            </div>
+            <!-- <button class="tablebtn" type="button" (click)="dt.exportCSV()">
+                <i class="mdi mdi-file-excel"></i>
+                <span>Export</span>
+            </button> -->
+        </div>
+    </p-header>
+
+    <p-table #dt [columns]="cols" [value]="datasource" [paginator]="true" [rows]="10" [totalRecords]="totalRecords">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th>Order ID</th>
+                <th>Date</th>
+                <!-- <th>Customer</th> -->
+                <th>Deliver by</th>
+                <th>Location</th>
+                <th style="width:80px">Payment</th>
+                <th>Status</th>
+                <th style="width:100px">Action</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr [pSelectableRow]="rowData">
+                <td>
+                    {{rowData._id}}
+                </td>
+                <td>{{rowData.createdAt | date}}</td>
+
+                <!-- <td>{{rowData.userid.username}}</td> -->
+                <td>
+                    {{rowData.deliverby?.name}}
+                    <button [disabled]="rowData.status !== 'PENDING'" *ngIf="!rowData.deliverby" (click)="assigndriver(rowData)" class="btn btn-primary">Assign Driver</button>
+                </td>
+                <td>{{rowData.locationid.fulladdress}}</td>
+                <td>{{rowData.paymentmethod}}</td>
+
+                <td>
+                    Delivery Status: {{rowData.status}} <br>
+                    <ng-container *ngIf="rowData.restaurantstatus">Restaurant Status: {{rowData.restaurantstatus}}</ng-container>
+                </td>
+
+
+                <td>
+                    <div class="icon-stacked">
+                        <button (click)="showDialog(rowData)" type="button" class="textbtn btn edit">
+                           <!-- <i class="mdi  mdi-launch"></i> -->
+                           View
+                        </button>
+                        <button (click)="updateorderstatus('ACCEPTED' , rowData)" type="button" class="textbtn btn btn-success"> Approved </button>
+
+                        <button (click)="resonmodal = true; selectedorder = rowData._id" type="button" class=" textbtn btn btn-primary">  Reject </button>
+                        <!-- <button (click)="deleteData(rowData)" type="button" class="btn delete">
+                           <i class="mdi mdi-delete-variant"></i>
+                        </button> -->
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-panel>
+<div *ngIf="viewDisp" class="modal" id="myModal">
+    <span class="orderModalCloses" (click)="viewDisp = false"><i class="fa fa-close"></i></span>
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <table class="table orderdescription">
+                <tr>
+                    <td>Id :</td>
+                    <td>{{viewdetail._id}} </td>
+                </tr>
+                <tr>
+                    <td>Customer :</td>
+                    <td>{{viewdetail.userid.username}}</td>
+                </tr>
+                <tr>
+                    <td>Deliver By : </td>
+                    <td>{{viewdetail.deliverby?.name}}</td>
+                </tr>
+                <tr>
+                    <td>Date :</td>
+                    <td>{{viewdetail.createdAt | date}}</td>
+                </tr>
+                <tr>
+                    <td>Location :</td>
+                    <td>{{viewdetail.locationid.fulladdress}}</td>
+                </tr>
+
+                <tr>
+                    <td>orders : </td>
+                    <td>
+
+                        <ul>
+                            <li *ngFor="let order of viewdetail.orders; let i = index">
+                                {{i + 1}}) {{order.name}} - {{order.price}} * {{order.count}} = {{order.price * order.count}}
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total Price : </td>
+                    <td>{{viewdetail.totalprice}}</td>
+                </tr>
+
+                <tr>
+                    <td>Payment Method :</td>
+                    <td>{{viewdetail.paymentmethod}}</td>
+                </tr>
+                <tr>
+                    <td>Notes : </td>
+                    <td>{{viewdetail.notes}} </td>
+                </tr>
+                <tr>
+                    <td>Status :</td>
+                    <td>{{viewdetail.status}} </td>
+                </tr>
+
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="display" class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form (ngSubmit)="onSubmitform(subcataForm);" #subcataForm="ngForm">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h6 class="modal-title">Assign Driver</h6>
+                    <button type="button" class="close" (click)="display = false">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body brandform">
+                    <div class="form-group">
+                        <label>Driver</label>
+                        <p-dropdown [options]="driverList" [(ngModel)]="orderdata.deliverby" #deliverby="ngModel" name="deliverby" id="deliverby" required [filter]="true" filterBy="label,value.name"></p-dropdown>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Assign</button>
+                    <button type="button" class="btn btn-danger" (click)="display = false">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="resonmodal" class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form (ngSubmit)="onSubmitrejectform(rejectreasonForm);" #rejectreasonForm="ngForm">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h6 class="modal-title">Reason</h6>
+                    <button type="button" class="close" (click)="display = false">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body brandform">
+                    <div class="form-group">
+                        <label>Reason for Discard</label>
+                        <textarea [(ngModel)]="rejectreason" name="rejectreason" id="rejectreason" class="form-control"></textarea>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <!-- (click)="updateorderstatus('REJECTED' , rowData)"  -->
+                    <button type="submit" class="btn btn-primary">Reject</button>
+                    <button type="button" class="btn btn-danger" (click)="display = false">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

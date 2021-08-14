@@ -1,0 +1,78 @@
+.tableheader__right {
+    width: 50%;
+    >span {
+        float: $ltr;
+        font-size: 20px;
+        margin: 2px 0 0 0;
+    }
+}
+
+.tablesearch {
+    i {
+        font-size: 21px;
+        margin: 1px 9px 0 0;
+        float: $ltr;
+        line-height: 28px;
+    }
+    float: $ltr;
+    border: 1px solid #eee;
+    margin: 1px 0 0 20px;
+    padding: 0 0 0 6px;
+    font-size: 14px;
+    input {
+        border: none;
+        height: 30px;
+        float: right;
+    }
+}
+
+.tablebtn {
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 3px;
+    background: #16a085;
+    // background: $redgrade;
+    color: #fff;
+    margin: 0 0 0 10px;
+    float: $ltr;
+    i {
+        font-size: 22px;
+        margin: 0px 5px 0 0;
+        float: $ltr;
+        line-height: 19px;
+    }
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: #fff;
+        cursor: pointer
+    }
+}
+
+body .ui-table .ui-table-thead>tr>th {
+    padding: 0.571em 0.857em;
+    border: 1px solid #eee;
+    font-weight: 700;
+    color: #424242;
+    background: none;
+}
+
+body .ui-table .ui-table-tbody>tr>td {
+    border: 1px solid #eee;
+    color: #424242;
+    img {
+        max-width: 60px;
+    }
+}
+
+body .ui-paginator {
+    background: none;
+    border: none;
+    padding: 10px 0;
+    text-align: right;
+}
+
+body .ui-table .ui-table-thead>tr>th {
+    text-transform: capitalize
+}

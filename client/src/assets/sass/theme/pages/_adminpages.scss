@@ -1,0 +1,107 @@
+.imagePreview {
+    border: 1px solid #eeee;
+    padding: 10px;
+    float: right;
+    width: 100%;
+    text-align: center;
+    h4 {
+        margin-bottom: 20px;
+        float: left
+    }
+    img {
+        width: 100%;
+    }
+}
+
+.brandform {
+    label {
+        @include float($ltr);
+        margin: 0 0;
+        font-size: 14px;
+    }
+    .form-group {
+        margin-bottom: 12px;
+        float: left;
+        width: 100%;
+    }
+    figure.previewholds {
+        float: left;
+        text-align: center;
+        width: 100%;
+        border: 1px solid #eee;
+        margin: 0;
+        height: 200px;
+        overflow: auto;
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
+.tabletdimg {
+    margin: 0
+}
+
+.sub-menu li a i {
+    font-size: 8px;
+    margin: 8px 9px 0 0;
+    float: left;
+}
+
+h4.sripheadline {
+    font-size: 17px;
+    border-bottom: 1px solid #eee;
+    padding: 5px 0 10px 0;
+    margin: 30px 0 20px 0;
+}
+
+.form-group.row .col-md-12 {
+    margin: 0;
+    padding: 0;
+}
+
+ul.opList li {
+    list-style: disc;
+}
+
+ul.opList {
+    padding: 0 0 0 20px;
+}
+
+.attributeContainer {
+    border-top: 1px solid #f1efef;
+    margin: 20px 0 0 0;
+    padding: 23px 0 0 0;
+}
+
+.orderdescription {
+    font-size: 14px;
+}
+
+.logopreview {
+    height: 40px;
+    display: block;
+}
+
+.orderModalCloses {
+    font-size: 50px;
+    float: right;
+    margin: 10px 120px 0 0px;
+    color: #fff;
+    cursor: pointer
+}
+
+.orderdescription.table>tbody>tr>td {
+    padding: 10px 18px;
+}
+
+body .ui-table .ui-table-tbody>tr>td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.checkoutpage {
+    app-footer {
+        display: none;
+    }
+}

@@ -1,0 +1,178 @@
+<div class="adminSidebar--fixed">
+    <div class="adminLogo">
+        <a href="#">Admin Logo</a>
+    </div>
+    <ul class="sidebar__menu">
+        <li>
+            <a routerLink="/admin/">
+                <i class="mdi mdi-laptop-chromebook"></i>Dashboard
+            </a>
+        </li>
+        <!-- User Menu start -->
+        <li data-target="#roles" data-toggle="collapse" aria-expanded="true">
+            <a>
+                <i class="mdi mdi-sitemap"></i>Roles & Responsible
+                <span class="mdi mdi-chevron-down"></span>
+            </a>
+        </li>
+        <ul class="sub-menu collapse " id="roles" aria-expanded="true" style="">
+            <li routerLinkActive="active">
+                <a routerLink="/admin/addsubadmin">
+                    <i class="fa fa-circle"></i>Add Subadmin
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/admin/subadminlist">
+                    <i class="fa fa-circle"></i>Subadmin List</a>
+            </li>
+        </ul>
+
+        <!-- User Menu start -->
+        <li routerLinkActive="active">
+            <a routerLink="/admin/userslist"><i class="fa fa-user-o"></i>Customer</a>
+        </li>
+        <!-- User Menu start -->
+        <!-- Driver Menu start -->
+        <li data-target="#category" data-toggle="collapse" aria-expanded="true">
+            <a>
+                <i class="mdi mdi-food-variant"></i>Categories
+                <span class="mdi mdi-chevron-down"></span>
+            </a>
+        </li>
+        <ul class="sub-menu collapse" id="category" aria-expanded="true" style="">
+            <li routerLinkActive="active">
+                <a routerLink="/admin/categorylist">
+                    <i class="fa fa-circle"></i>category</a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/admin/subcategorylist">
+                    <i class="fa fa-circle"></i> Sub Category
+                </a>
+            </li>
+        </ul>
+        <li data-target="#subcategory" data-toggle="collapse" aria-expanded="true">
+            <a>
+                <i class="mdi mdi-food"></i>Dishes
+                <span class="mdi mdi-chevron-down"></span>
+            </a>
+        </li>
+        <ul class="sub-menu collapse" id="subcategory" aria-expanded="true" style="">
+            <li routerLinkActive="active">
+                <a routerLink="/admin/dishesList">
+                    <i class="fa fa-circle"></i>Dishes List</a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/admin/adddishes">
+                    <i class="fa fa-circle"></i>Add New Dish</a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/admin/attributes">
+                    <i class="fa fa-circle"></i>Dish Attribute</a>
+            </li>
+        </ul>
+
+        <li routerLinkActive="active">
+            <a routerLink="/admin/orders">
+                <i class="mdi mdi-clipboard-outline"></i>orders
+            </a>
+        </li>
+
+        <li data-target="#fare" data-toggle="collapse" aria-expanded="true">
+            <a>
+                <i class="mdi mdi-currency-usd"></i>Fare and Tax
+                <span class="mdi mdi-chevron-down"></span>
+            </a>
+        </li>
+        <ul class="sub-menu collapse" id="fare" aria-expanded="true" style="">
+            <li routerLinkActive="active">
+                <a routerLink="/admin/fareclasses">
+                    <i class="fa fa-circle"></i>Fare Classes</a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/admin/farerate">
+                    <i class="fa fa-circle"></i>Fare Rate</a>
+            </li>
+        </ul>
+
+        <!-- <li data-target="#reports" data-toggle="collapse" aria-expanded="true">
+            <a>
+                <i class="mdi mdi-file-document-box"></i>Reports
+                <span class="mdi mdi-chevron-down"></span>
+            </a>
+        </li>
+        <ul class="sub-menu collapse" id="reports" aria-expanded="true">
+            <li>
+                <a routerLink="/admin/product">
+                    <i class="fa fa-circle"></i>Overall Ride Reports
+                </a>
+            </li>
+            <li>
+                <a routerLink="/admin/product">
+                    <i class="fa fa-circle"></i>Provider Reports
+                </a>
+            </li>
+            <li>
+                <a routerLink="/admin/product">
+                    <i class="fa fa-circle"></i>Daily Reports
+                </a>
+            </li>
+        </ul> -->
+
+        <li data-target="#drivers" data-toggle="collapse" aria-expanded="true">
+            <a>
+                <i class="mdi mdi-motorbike"></i>Delivery
+                <span class="mdi mdi-chevron-down"></span>
+            </a>
+        </li>
+        <ul class="sub-menu collapse" id="drivers" aria-expanded="true" style="">
+            <li routerLinkActive="active">
+                <a routerLink="/admin/driverslist">
+                    <i class="fa fa-circle"></i>Drivers List</a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/admin/adddriver">
+                    <i class="fa fa-circle"></i>Add Driver</a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/admin/driverdashboard">
+                    <i class="fa fa-circle"></i>Delivery Dashboard
+                </a>
+            </li>
+        </ul>
+        <!-- Driver Menu End -->
+        <li routerLinkActive="active">
+            <a routerLink="/admin/coupons">
+                <i class="mdi mdi-barcode"></i>Coupons</a>
+        </li>
+        <li routerLinkActive="active">
+            <a routerLink="/admin/paymentMethod">
+                <i class="mdi mdi-barcode"></i>Payments
+            </a>
+        </li>
+        <li data-target="#settings" data-toggle="collapse" aria-expanded="true">
+            <a>
+                <i class="mdi mdi-motorbike"></i>Settings
+                <span class="mdi mdi-chevron-down"></span>
+            </a>
+        </li>
+        <ul class="sub-menu collapse" id="settings" aria-expanded="true" style="">
+            <li routerLinkActive="active">
+                <a routerLink="/admin/sitesetting">
+                    <i class="fa fa-circle"></i>Site Settings</a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/admin/banner">
+                    <i class="fa fa-circle"></i>Banner Setting</a>
+            </li>
+            <!-- <li routerLinkActive="active">
+                <a routerLink="/admin/adddriver">
+                    <i class="fa fa-circle"></i>Social Media Settings</a>
+            </li> -->
+        </ul>
+        <!-- <li>
+            <a href="#">
+                <i class="mdi mdi-access-point"></i>Language
+            </a>
+        </li> -->
+    </ul>
+</div>

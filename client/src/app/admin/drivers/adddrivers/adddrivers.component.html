@@ -1,0 +1,185 @@
+<div class="admin-panel-row">
+    <form class="fullform" (ngSubmit)="onSubmitdriver(adddriverForm);" #adddriverForm="ngForm">
+        <!-- // ngModelGroup="driverinfo" -->
+        <p-panel class="col-md-6">
+            <p-header>
+                Driver's Details
+            </p-header>
+
+
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Full Name</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="driver.name" #name="ngModel" name="name" id="name" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Email</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" [(ngModel)]="driver.email" #email="ngModel" name="email" id="email" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Mobile</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="driver.mobile" #mobile="ngModel" name="mobile" id="mobile" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Password</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="driver.password" #password="ngModel" name="password" id="password" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Confirm Password</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="driver.confirmpassword" #confirmpassword="ngModel" name="confirmpassword" id="confirmpassword" required>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Drivers Image</label>
+                <div class="col-sm-8">
+                    <p-fileUpload name="image[]" (onUpload)="UploadImage($event , 'image')" mode="basic" auto="auto" [url]="imageUploadApi"></p-fileUpload>
+
+                    <input type="text" class="form-control hide" [(ngModel)]="driver.image" #image="ngModel" name="image" id="image" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label"></label>
+                <div class="col-md-8">
+                    <img class="driverimagepreiv" *ngIf="driver.image" src="{{imagepath}}{{driver.image}}" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Address</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="driver.address" #address="ngModel" name="address" id="address" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Country</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="driver.country" #country="ngModel" name="country" id="country" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">State</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="driver.state" #state="ngModel" name="state" id="state" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">City</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="driver.city" #city="ngModel" name="city" id="city" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Postal Code</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="driver.postalcode" #postalcode="ngModel" name="postalcode" id="postalcode" required>
+                </div>
+            </div>
+
+
+
+        </p-panel>
+        <!-- <p-panel ngModelGroup="vehicleinfo" class="col-md-6">
+            <p-header>
+                Vehicle Information
+            </p-header>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Model Name</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="driver.modelname" #modelname="ngModel" name="modelname" id="modelname" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Maker</label>
+                <div class="col-sm-8">
+                    <p-dropdown [options]="makerLists" [(ngModel)]="driver.maker" #maker="ngModel" name="maker" id="maker" required></p-dropdown>
+
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Vehicle Type </label>
+                <div class="col-sm-8">
+
+
+                    <p-dropdown [options]="categoryList" [(ngModel)]="driver.vehicletype" #vehicletype="ngModel" name="vehicletype" id="vehicletype" required></p-dropdown>
+
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Year of Model </label>
+                <div class="col-sm-8">
+
+                    <p-dropdown [options]="modelyearList" [(ngModel)]="driver.modelyear" #modelyear="ngModel" name="modelyear" id="modelyear" required></p-dropdown>
+
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Vehicle Number</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" [(ngModel)]="driver.vehiclenumber" #vehiclenumber="ngModel" name="vehiclenumber" id="vehiclenumber" required>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Air Conditioned</label>
+                <div class="col-sm-8">
+                    <p-inputSwitch [(ngModel)]="driver.ac" #ac="ngModel" name="ac" id="ac" required></p-inputSwitch>
+
+                </div>
+            </div>
+
+            <div class="formsubhead">
+                <span> Documents </span>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">ID Proof</label>
+                <div class="col-sm-8">
+                    <p-fileUpload name="myfile[]" mode="basic" auto="auto" url="./upload.php"></p-fileUpload>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-4 col-form-label">Vehicle Proof(Licence/RC)</label>
+                <div class="col-sm-8">
+                    <p-fileUpload name="myfile[]" mode="basic" auto="auto" url="./upload.php"></p-fileUpload>
+                </div>
+            </div>
+        </p-panel> -->
+
+        <!-- <p-panel class="col-md-6">
+            <p-header>
+                Driver's Details
+            </p-header>
+        </p-panel> -->
+        <div class="panelfooter">
+            <div class="btnholder">
+                <button type="submit" [disabled]="!adddriverForm.form.valid" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-round">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>
